@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise 😈</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: radial-gradient(circle, #292943, #090910);
+}
+
+h1 {
+  font-size: 32px;
+}
+
+p {
+  color: #aaa;
+}
+
+button {
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  background: #a5ffef;
+  color: #111;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hand {
+  font-size: 180px;
+  display: none;
+  transform-origin: center;
+}
+
+.hand.show {
+  display: block;
+  animation: pop 0.7s ease-out, wobble 1.5s infinite 0.7s;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0) rotate(-30deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+#message {
+  font-size: 22px;
+  font-weight: bold;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="title">Ready for a surprise? 😈</h1>
+<p id="subtitle">Press the button if you dare!</p>
+
+<button id="start">START</button>
+
+<div class="hand" id="hand">🖕</div>
+<div id="message">SURPRISE! 😂</div>
+
+<script>
+const button = document.getElementById("start");
+
+button.addEventListener("click", function () {
+  document.getElementById("title").textContent = "GOTCHA! 😈";
+  document.getElementById("subtitle").style.display = "none";
+
+  const hand = document.getElementById("hand");
+  hand.classList.remove("show");
+
+  void hand.offsetWidth;
+
+  hand.classList.add("show");
+
+  document.getElementById("message").style.display = "block";
+
+  button.textContent = "AGAIN?";
+});
+</script>
+
+</body>
+</html>
